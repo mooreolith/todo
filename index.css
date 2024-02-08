@@ -19,6 +19,10 @@ ul, li {
   margin: 0;
 }
 
+ul#todos {
+  column-width: 250px;
+}
+
 .done {
   text-decoration: line-through;
 }
