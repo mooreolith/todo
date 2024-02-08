@@ -35,12 +35,18 @@ ul#todos {
   content: '  ';
 }
 
-a#add-button {
+button#add-button {
   padding: 2px;
   border: 1px dotted black;
+
+  background: none!important;
+  padding: 0!important;
+  font-family: arial, sans-serif;
+  color: black;
+  cursor: pointer;
 }
 
-a#add-button:hover {
+button#add-button:hover {
   border: 1px solid black;
 }
 
