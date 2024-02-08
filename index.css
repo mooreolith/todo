@@ -19,10 +19,6 @@ ul, li {
   margin: 0;
 }
 
-ul#todos {
-  column-width: 250px;
-}
-
 .done {
   text-decoration: line-through;
 }
@@ -44,6 +40,7 @@ button#add-button {
   font-family: arial, sans-serif;
   color: black;
   cursor: pointer;
+  margin: 2px;
 }
 
 button#add-button:hover {
