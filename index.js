@@ -22,7 +22,8 @@ async function refreshTodos(){
   const todoElem = document.querySelector('#todos');
   todoElem.innerHTML = '';
 
-  const todoList = await DB.list().sort((ta, tb) => ta.when > tb.when);
+  const todoList = await DB.list();
+  todoList.sort((ta, tb) => ta.when - tb.when);
   todoList.forEach(render);
 }
 
