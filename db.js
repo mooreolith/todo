@@ -51,7 +51,7 @@ class DB {
   
   static #dbName = 'todos';
   static #table = 'todos';
-  static #version = 1;
+  static #version = 2;
   
   static open(){
     return new Promise((resolve, reject) => {
@@ -75,5 +75,6 @@ class DB {
     const objectStore = db.createObjectStore(DB.#dbName, {keyPath: 'id'});
     objectStore.createIndex('item', 'item', {unique: false});
     objectStore.createIndex('done', 'done', {unique: false});
+    objectStore.createIndex('when', 'when', {unique: false});
   };
 }

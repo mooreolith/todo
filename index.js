@@ -6,7 +6,12 @@ async function onAddButtonClick(){
   const todo = prompt("Enter your todo item:");
   if(todo === null) return;
 
-  const item = {id: crypto.randomUUID(), item: todo, done: false};
+  const item = {
+    "id": crypto.randomUUID(), 
+    "item": todo, 
+    "done": false,
+    "when": Date.now()
+  };
   
   DB
   .add(item)
@@ -17,7 +22,7 @@ async function refreshTodos(){
   const todoElem = document.querySelector('#todos');
   todoElem.innerHTML = '';
 
-  const todoList = await DB.list();
+  const todoList = await DB.list().sort((ta, tb) => ta.when > tb.when);
   todoList.forEach(render);
 }
 
@@ -50,6 +55,12 @@ function render(todo){
   doneField.value = todo.done;
   doneField.type = "hidden";
   li.appendChild(doneField);
+
+  const whenField = document.createElement('input');
+  whenField.classList.add('when-field');
+  whenField.value = todo.when;
+  whenField.type = 'hidden';
+  li.append(whenField);
   
   /*
     Now, some buttons to toggle the todo items.
@@ -95,12 +106,14 @@ function onDoneBtnClick(event){
   const id = li.querySelector('.id-field').value;
   const item = li.querySelector('.item-field').value;
   let done = JSON.parse(li.querySelector('.done-field').value);
+  const when = li.querySelector('.when-field').value
   done = !done;
 
   const body = {
     "id": id,
     "item": item,
-    "done": done
+    "done": done,
+    "when": when
   };
 
   DB.update(body).then(refreshTodos);
