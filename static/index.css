@@ -1,0 +1,54 @@
+html, body {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+.app {
+  padding-left: 20px;
+}
+
+#error {
+  color: red;
+}
+
+ul, li {
+  list-style-type: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.done {
+  text-decoration: line-through;
+}
+
+.indicator::after {
+  content: '  ';
+}
+
+.todo::after {
+  content: '  ';
+}
+
+a#add-button {
+  padding: 2px;
+  border: 1px dotted black;
+}
+
+a#add-button:hover {
+  border: 1px solid black;
+}
+
+a.btn {
+  margin: 2px;
+  border: 1px dotted black;
+}
+
+a.btn:hover {
+  border: 1px solid black;
+}
+
+html, body {
+  margin: 10px;
+}
